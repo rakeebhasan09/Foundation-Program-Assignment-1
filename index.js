@@ -5,10 +5,37 @@ function describeValue(value) {
         return `${typeof value} | falsy`;
     }
 }
-console.log(describeValue("hello"));
-console.log(describeValue(""));
-console.log(describeValue(25));
-console.log(describeValue(0));
-console.log(describeValue(true));
-console.log(describeValue(null));
-console.log(describeValue(undefined));
+
+function getDayType(day) {
+    switch (day) {
+        case "Friday":
+        case "Saturday":
+            return "Weekend";
+
+        case "Sunday":
+        case "Monday":
+        case "Tuesday":
+        case "Wednesday":
+        case "Thursday":
+            return "Working Day";
+
+        default:
+            return "Invalid Day";
+    }
+}
+
+function validateUsername(username) {
+    if (username.length < 4) {
+        return "Too Short";
+    }
+
+    if (username.includes(" ")) {
+        return "No Space Allowed";
+    }
+
+    if (username.toLowerCase().includes("admin")) {
+        return "Reserved Word";
+    }
+
+    return "Available";
+}
